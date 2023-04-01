@@ -11,6 +11,8 @@ import {FormsModule} from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
 
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { MessageErrorComponent } from './message-error/message-error.component';
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { MessagesModule } from 'primeng/messages';
     AppComponent,
     FuntionComponent,
     LoginComponent,
+    MessageErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { MessagesModule } from 'primeng/messages';
     InputTextModule,
     DropdownModule,
     ToastModule,
-    MessagesModule
+    MessagesModule,
+    RadioButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

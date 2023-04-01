@@ -36,3 +36,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 con un formulario
 -tener en cuenta los valores negativos en el calculo.
 -Aplicar estilos.
+
+## un saludo de usuario que lo persista
+## y el otro es para proteger las rutas.

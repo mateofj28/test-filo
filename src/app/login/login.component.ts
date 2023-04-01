@@ -13,13 +13,17 @@ export class LoginComponent {
 
   username: string = ''
   messages: Message[] = [];
+  validUsername: string = '-1';
+  message: string = 'Información invalidad, por favor ingresa un usuario correcto'
+  title: string = 'Inicia sesión'
 
   validUserAccount() {
     if (this.username === 'mateofj28') {
+      localStorage.setItem('user', this.username)
       this.router.navigate(['/funtion'])
-    } else {
-      this.messages = [{ severity: 'warn', summary: 'Warning', detail: 'Usuario no encontrado' }];
-    }
+    }else{
+      this.validUsername = '1'
+    } 
   }
 
 }

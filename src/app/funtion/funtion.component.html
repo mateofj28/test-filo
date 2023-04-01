@@ -1,22 +1,58 @@
-<div class="flex justify-content-center">
+<div class="flex justify-content-center" [ngStyle]="{'background-color':'#000', 'height': '100'}">
     <div class="mb-8">
-        <div class="flex flex-column gap-2 mb-8 mt-8">
-            <label htmlFor="username">Horas trabajadas</label>
-            <input type="number" pInputText id="hoursWorks" aria-describedby="username-help" [(ngModel)]="hours" />
+        <h1 [ngStyle]="{'color':'#ffffff', 'marginTop': '5rem'}">Calcular salario</h1>
+        <div
+            [ngStyle]="{'color':'#717978', 'fontSize':'1.2rem', 'marginTop':'0.1rem', 'marginBottom': '0.5rem', 'width': '21rem'}">
+            Por favor
+            ingrese la horas trabajadas y seleccione una categoria</div>
+            <app-message-error *ngIf="showError == '1'" [message]="message"></app-message-error>    
+        <div class="flex flex-column gap-2 mb-4 mt-2">
+            <label htmlFor="username" [ngStyle]="{'color':'#fffaf2'}">Horas trabajadas</label>
+            <input type="number" class="w-full" pInputText id="hoursWorks" aria-describedby="username-help"
+                [(ngModel)]="hours" />
         </div>
+
+        <div class="flex flex-column gap-2 mb-7 mt-2">
+            <label htmlFor="username" [ngStyle]="{'color':'#fffaf2'}">Selecciona una Categoria</label>
+            <div class="flex justify-content-start gap-3 mt-1">
+                <div class="flex align-items-center gap-2">
+                    <p-radioButton name="one" value="1" [(ngModel)]="ingredient" inputId="ingredient1"></p-radioButton>
+                    <label for="ny" [ngStyle]="{'color':'#ffffff'}">1</label>
+                </div>
+
+                <div class="flex align-items-center gap-2">
+                    <p-radioButton name="two" value="2" [(ngModel)]="ingredient" inputId="ingredient1"></p-radioButton>
+
+                    <label for="sf" [ngStyle]="{'color':'#ffffff'}">2</label>
+                </div>
+
+                <div class="flex align-items-center gap-2">
+                    <p-radioButton name="three" value="3" [(ngModel)]="ingredient"
+                        inputId="ingredient1"></p-radioButton>
+                    <label for="la" [ngStyle]="{'color':'#ffffff'}">3</label>
+                </div>
+                <div class="flex align-items-center gap-2">
+                    <p-radioButton name="four" value="4" [(ngModel)]="ingredient" inputId="ingredient1"></p-radioButton>
+                    <label for="sf" [ngStyle]="{'color':'#ffffff'}">4</label>
+                </div>
+
+                <div class="flex align-items-center gap-2">
+                    <p-radioButton name="five" value="5" [(ngModel)]="ingredient" inputId="ingredient1"></p-radioButton>
+                    <label for="la" [ngStyle]="{'color':'#ffffff'}">5</label>
+                </div>
+            </div>
+
+        </div>
+
         <p-button type="number" class="mb-8 mr-5" label="Calcular Salario" (click)="findSalary()"
             styleClass="p-button-danger"></p-button>
         <p-button type="number" class="mb-8" label="Limpiar valores" (click)="setState()"
             styleClass="p-button-info"></p-button>
         <p-toast></p-toast>
         <p-messages [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
-        <div class="mt-4">Su Salario es de: ${{ salary }}</div>
-        <div class="flex justify-content-center mt-8">
-            <div class="col-12">
-                <p-button class="mr-5 mt-8" label="Regresar" [routerLink]="['/']"
-                    styleClass="p-button-success"></p-button>
-            </div>
-
+        <div class="mt-4" [ngStyle]="{'color':'#ffffff'}">Su Salario es de: ${{ salary }}</div>
+        <div class="flex justify-content-center mt-8" [ngStyle]="{'position':'absolute', 'left':'10px', 'bottom':'510px'}">
+            <p-button class="mr-5 mt-8" label="Regresar" (click)="toHome()" styleClass="p-button-success"></p-button>
         </div>
     </div>
 
